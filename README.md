@@ -1,6 +1,16 @@
 # GitWorkshop
 
 
+## Resources : 
+
+- Documentation : [Git Docs](https://git-scm.com/docs)
+- Book **PRO GIT** : [Pro Git](https://git-scm.com/book/en/v2)
+- Git Notes for Professionals : [Download Link](https://goalkicker.com/GitBook/GitNotesForProfessionals.pdf)
+- Markdown Guide : [Link](https://guides.github.com/features/mastering-markdown/)
+
+
+## CheatSheet
+
 Setup
 -----------
 
