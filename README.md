@@ -244,3 +244,61 @@ Clone specific branch to localhost:
 Delete remote branch (push nothing):
 `git push origin :<branch_name>` or:
 `git push origin --delete <branch_name>`
+
+
+
+
+Compare
+-----------
+
+Compare modified files:
+`git diff`
+
+Compare modified files and highlight changes only:
+`git diff --color-words index.html`
+
+Compare modified files within the staging area:
+`git diff --staged`
+
+Compare branches:
+`git diff master..branchname`
+
+Compare branches like above:
+`git diff --color-words master..branchname^`
+
+Compare commits:
+`git diff 6eb715d`
+`git diff 6eb715d..HEAD`
+`git diff 6eb715d..537a09f`
+
+Compare commits of file:
+`git diff 6eb715d index.html`
+`git diff 6eb715d..537a09f index.html`
+
+
+Stash
+-----------
+
+Put in stash:
+`git stash save "Message"`
+
+Show stash:
+`git stash list`
+
+Show stash stats:
+`git stash show stash@{0}`
+
+Show stash changes:
+`git stash show -p stash@{0}`
+
+Use custom stash item and drop it:
+`git stash pop stash@{0}`
+
+Use custom stash item and do not drop it:
+`git stash apply stash@{0}`
+
+Delete custom stash item:
+`git stash drop stash@{0}`
+
+Delete complete stash:
+`git stash clear`
