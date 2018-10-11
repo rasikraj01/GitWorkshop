@@ -66,6 +66,53 @@ Hard reset (move HEAD and change staging dir and working dir to match repo):
 `git reset --hard <comit_hash_id>`
 
 
+Log
+-----------
+
+Show commits:
+`git log`
+
+Show oneline-summary of commits:
+`git log --oneline`
+
+Show oneline-summary of commits with full SHA-1:
+`git log --format=oneline`
+
+Show oneline-summary of the last three commits:
+`git log --oneline -3`
+
+Show only custom commits:
+`git log --author="Sven"`
+`git log --grep="Message"`
+`git log --until=2013-01-01`
+`git log --since=2013-01-01`
+
+Show only custom data of commit:
+`git log --format=short`
+`git log --format=full`
+`git log --format=fuller`
+`git log --format=email`
+`git log --format=raw`
+
+Show changes:
+`git log -p`
+
+Show every commit since special commit for custom file only:
+`git log 6eb715d.. index.html`
+
+Show changes of every commit since special commit for custom file only:
+`git log -p 6eb715d.. index.html`
+
+Show stats and summary of commits:
+`git log --stat --summary`
+
+Show history of commits as graph:
+`git log --graph`
+
+Show history of commits as graph-summary:
+`git log --oneline --graph --all --decorate`
+
+
 Branch
 -----------
 
@@ -111,21 +158,89 @@ Merge to master (force a new commit):
 Stop merge (in case of conflicts):
 `git merge --abort`
 
-Stop merge (in case of conflicts):
-`git reset --merge` // prior to v1.7.4
-
-Merge only one specific commit: 
+Merge only one specific commit:
 `git cherry-pick <commit_hash_id>`
 
 Rebase:
-`git checkout branchname` » `git rebase master`
+`git checkout <branch_name>` » `git rebase master`
 or:
-`git merge master branchname`
-(The rebase moves all of the commits in `master` onto the tip of `branchname`.)
+`git merge master <branch_name>`
+(The rebase moves all of the commits in `master` onto the tip of `<branch_name>`.)
 
 Cancel rebase:
 `git rebase --abort`
 
 Squash multiple commits into one:
-`git rebase -i HEAD~3` ([source](https://www.devroom.io/2011/07/05/git-squash-your-latests-commits-into-one/))
+`git rebase -i HEAD~3`
 
+
+Collaborate
+-----------
+
+Show remote:
+`git remote`
+
+Show remote details:
+`git remote -v`
+
+Add remote upstream from GitHub project:
+`git remote add upstream https://github.com/user/project.git`
+
+Add remote upstream from existing empty project on server:
+`git remote add upstream ssh://root@123.123.123.123/path/to/repository/.git`
+
+Fetch:
+`git fetch upstream`
+
+Fetch a custom branch:
+`git fetch upstream <branch_name>:local_<branch_name>`
+
+Merge fetched commits:
+`git merge upstream/master`
+
+Remove origin:
+`git remote rm origin`
+
+Show remote branches:
+`git branch -r`
+
+Show all branches:
+`git branch -a`
+
+Create and checkout branch from a remote branch:
+`git checkout -b local_<branch_name> upstream/remote_<branch_name>`
+
+Compare:
+`git diff origin/master..master`
+
+Push (set default with `-u`):
+`git push -u origin master`
+
+Push:
+`git push origin master`
+
+Force-Push:
+`git push origin master --force
+
+Pull:
+`git pull`
+
+Pull specific branch:
+`git pull origin <branch_name>`
+
+Fetch a pull request on GitHub by its ID and create a new branch:
+`git fetch upstream pull/ID/head:new-pr-branch`
+
+Clone to localhost:
+`git clone https://github.com/user/project.git` or:
+`git clone ssh://user@domain.com/~/dir/.git`
+
+Clone to localhost folder:
+`git clone https://github.com/user/project.git ~/dir/folder`
+
+Clone specific branch to localhost:
+`git clone -b <branch_name> https://github.com/user/project.git`
+
+Delete remote branch (push nothing):
+`git push origin :<branch_name>` or:
+`git push origin --delete <branch_name>`
